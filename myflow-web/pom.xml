@@ -26,6 +26,11 @@
     </dependency>
 
     <dependency>
+      <artifactId>myflow-controller</artifactId>
+      <groupId>com.hongshan.myflow.controller</groupId>
+    </dependency>
+
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>

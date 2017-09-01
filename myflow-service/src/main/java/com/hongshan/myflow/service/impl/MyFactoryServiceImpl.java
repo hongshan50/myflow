@@ -5,7 +5,6 @@ import com.hongshan.myflow.zk.spring.namespace.MyFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 
 /**
  * 自定义工厂实现类
@@ -19,7 +18,6 @@ public class MyFactoryServiceImpl implements MyFactoryService {
     @Autowired
     private MyFactory myfacClient;
 
-    @PostConstruct
     public void init() {
         System.out.println("****验证初始化****");
     }
