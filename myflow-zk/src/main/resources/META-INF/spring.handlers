@@ -1,0 +1,2 @@
+http\://zk.myflow.com/schema/zkframework/zk=com.hongshan.myflow.zk.spring.namespace.ZkNamespaceHandler
+http\://myfac.myflow.com/schema/myfac=com.hongshan.myflow.zk.spring.namespace.MyFacNamespaceHandler

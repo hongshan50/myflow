@@ -7,14 +7,370 @@
   <version>1.0-SNAPSHOT</version>
   <name>myflow</name>
   <url>http://maven.apache.org</url>
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+
+
+  <properties>
+    <project-version>1.0-SNAPSHOT</project-version>
+    <java-version>1.8</java-version>
+    <servlet-version>3.0.1</servlet-version>
+    <junit-version>4.12</junit-version>
+    <springframework-version>4.2.9.RELEASE</springframework-version>
+    <mybatis-version>3.4.1</mybatis-version>
+    <mybatis-spring-version>1.3.0</mybatis-spring-version>
+    <mysql-version>5.1.38</mysql-version>
+    <druid-version>1.0.26</druid-version>
+    <commons-lang-version>2.6</commons-lang-version>
+    <commons-fileupload-version>1.3.1</commons-fileupload-version>
+    <commons-io-version>2.5</commons-io-version>
+    <commons-codec-version>1.10</commons-codec-version>
+    <commons-configuration-version>1.10</commons-configuration-version>
+    <commons-logging-version>1.2</commons-logging-version>
+    <slf4j-version>1.7.19</slf4j-version>
+    <log4j-version>1.2.17</log4j-version>
+    <fastjson-version>1.2.7</fastjson-version>
+    <shiro-version>1.3.2</shiro-version>
+    <quartz-version>2.2.3</quartz-version>
+    <kaptcha-version>0.0.9</kaptcha-version>
+    <velocity-version>1.7</velocity-version>
+    <velocity-tools-version>2.0</velocity-tools-version>
+    <jstl-version>1.2</jstl-version>
+    <taglibs-version>1.1.2</taglibs-version>
+    <freemarker-version>2.3.23</freemarker-version>
+    <joda-time-version>2.9.7</joda-time-version>
+    <curator.version>2.10.0</curator.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+
+
+  <dependencyManagement>
+    <dependencies>
+
+        <dependency>
+            <groupId>com.hongshan.myflow.domain</groupId>
+            <artifactId>myflow-domain</artifactId>
+            <version>${project-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.hongshan.myflow.dao</groupId>
+            <artifactId>myflow-dao</artifactId>
+            <version>${project-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.hongshan.myflow.export</groupId>
+            <artifactId>myflow-export</artifactId>
+            <version>${project-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.hongshan.myflow.service</groupId>
+            <artifactId>myflow-service</artifactId>
+            <version>${project-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.hongshan.myflow.util</groupId>
+            <artifactId>myflow-util</artifactId>
+            <version>${project-version}</version>
+        </dependency>
+
+      <dependency>
+        <groupId>com.hongshan.myflow.web</groupId>
+        <artifactId>myflow-web</artifactId>
+        <version>${project-version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.hongshan.myflow.zk</groupId>
+        <artifactId>myflow-zk</artifactId>
+        <version>${project-version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>joda-time</groupId>
+        <artifactId>joda-time</artifactId>
+        <version>2.9</version>
+      </dependency>
+      <!-- TEST -->
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.9</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.jcraft</groupId>
+        <artifactId>jzlib</artifactId>
+        <version>1.1.3</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>11.0.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit-version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>${servlet-version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.mybatis</groupId>
+        <artifactId>mybatis</artifactId>
+        <version>${mybatis-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mybatis</groupId>
+        <artifactId>mybatis-spring</artifactId>
+        <version>${mybatis-spring-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-core</artifactId>
+        <version>${springframework-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-beans</artifactId>
+        <version>${springframework-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webmvc</artifactId>
+        <version>${springframework-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-web</artifactId>
+        <version>${springframework-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-jdbc</artifactId>
+        <version>${springframework-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-tx</artifactId>
+        <version>${springframework-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>${springframework-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context-support</artifactId>
+        <version>${springframework-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-aop</artifactId>
+        <version>${springframework-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-aspects</artifactId>
+        <version>${springframework-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-test</artifactId>
+        <version>${springframework-version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>${slf4j-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>${log4j-version}</version>
+      </dependency>
+      <dependency>
+        <artifactId>commons-logging</artifactId>
+        <groupId>commons-logging</groupId>
+        <version>${commons-logging-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid</artifactId>
+        <version>${druid-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-lang</groupId>
+        <artifactId>commons-lang</artifactId>
+        <version>${commons-lang-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-fileupload</groupId>
+        <artifactId>commons-fileupload</artifactId>
+        <version>${commons-fileupload-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>${commons-io-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>fastjson</artifactId>
+        <version>${fastjson-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-codec</groupId>
+        <artifactId>commons-codec</artifactId>
+        <version>${commons-codec-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-configuration</groupId>
+        <artifactId>commons-configuration</artifactId>
+        <version>${commons-configuration-version}</version>
+      </dependency>
+      <dependency>
+
+        <groupId>org.quartz-scheduler</groupId>
+        <artifactId>quartz</artifactId>
+        <version>${quartz-version}</version>
+        <exclusions>
+          <exclusion>
+            <artifactId>c3p0</artifactId>
+            <groupId>c3p0</groupId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <!-- JSP视图所需jar -->
+      <dependency>
+        <groupId>jstl</groupId>
+        <artifactId>jstl</artifactId>
+        <version>${jstl-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>taglibs</groupId>
+        <artifactId>standard</artifactId>
+        <version>${taglibs-version}</version>
+      </dependency>
+
+      <!-- Freemarker视图所需jar -->
+      <dependency>
+        <groupId>org.freemarker</groupId>
+        <artifactId>freemarker</artifactId>
+        <version>${freemarker-version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>joda-time</groupId>
+        <artifactId>joda-time</artifactId>
+        <version>${joda-time-version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.wangyin.r2m</groupId>
+        <artifactId>r2m-client</artifactId>
+        <version>1.4.7</version>
+      </dependency>
+
+      <dependency>
+        <groupId>commons-net</groupId>
+        <artifactId>commons-net</artifactId>
+        <version>3.6</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-compress</artifactId>
+        <version>1.12</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.curator</groupId>
+        <artifactId>curator-framework</artifactId>
+        <version>${curator.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.curator</groupId>
+        <artifactId>curator-client</artifactId>
+        <version>${curator.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.curator</groupId>
+        <artifactId>curator-recipes</artifactId>
+        <version>${curator.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.curator</groupId>
+        <artifactId>curator-test</artifactId>
+        <version>${curator.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.aspectj</groupId>
+        <artifactId>aspectjweaver</artifactId>
+        <version>1.6.12</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.aspectj</groupId>
+        <artifactId>aspectjrt</artifactId>
+        <version>1.6.12</version>
+      </dependency>
+
+      <!-- velocity -->
+      <dependency>
+        <groupId>org.apache.velocity</groupId>
+        <artifactId>velocity</artifactId>
+        <version>1.7</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.velocity</groupId>
+        <artifactId>velocity-tools</artifactId>
+        <version>2.0</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-digester</groupId>
+        <artifactId>commons-digester</artifactId>
+        <version>2.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.quartz-scheduler</groupId>
+        <artifactId>quartz</artifactId>
+        <version>2.2.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.quartz-scheduler</groupId>
+        <artifactId>quartz-jobs</artifactId>
+        <version>2.2.1</version>
+      </dependency>
+
+
+    </dependencies>
+  </dependencyManagement>
+
   <modules>
     <module>myflow-web</module>
     <module>myflow-export</module>
@@ -22,5 +378,37 @@
     <module>myflow-dao</module>
     <module>myflow-service</module>
     <module>myflow-util</module>
+    <module>myflow-zk</module>
   </modules>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+  </build>
+
+  <profiles>
+    <profile>
+      <!-- 开发环境 -->
+      <id>dev</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <zk.hosts>192.168.108.115:2181,192.168.108.116:2181,192.168.151.144:2181,192.168.151.143:2181,192.168.151.139:2181</zk.hosts>
+        <zk.namespace>assetpledge</zk.namespace>
+        <zk.baseSleepTimeMs>3000</zk.baseSleepTimeMs>
+        <zk.maxSleepTimeMs>30000</zk.maxSleepTimeMs>
+        <zk.maxRetries>5</zk.maxRetries>
+        <zk.nestedPort></zk.nestedPort>
+        <zk.nestedDataDir>target/test_zk_data/</zk.nestedDataDir>
+
+        <myfac.hosts>127.0.0.1</myfac.hosts>
+        <myfac.num>1</myfac.num>
+      </properties>
+    </profile>
+  </profiles>
 </project>

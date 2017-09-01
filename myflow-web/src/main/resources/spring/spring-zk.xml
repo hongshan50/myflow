@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:zk="http://zk.myflow.com/schema/zkframework/zk"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://zk.myflow.com/schema/zkframework/zk
+                           http://zk.myflow.com/schema/zkframework/zk/zk.xsd">
+
+
+   <!-- <zk:client id="zookeeperClient" hosts="${zk.hosts}" namespace="${zk.namespace}" baseSleepTimeMs="${zk.baseSleepTimeMs}"
+               maxSleepTimeMs="${zk.maxSleepTimeMs}" maxRetries="${zk.maxRetries}" nestedPort="${zk.nestedPort}" nestedDataDir="${zk.nestedDataDir}" />-->
+
+</beans>

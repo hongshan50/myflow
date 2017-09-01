@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://zk.myflow.com/schema/zkframework/zk"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:beans="http://www.springframework.org/schema/beans"
+        targetNamespace="http://zk.myflow.com/schema/zkframework/zk"
+        elementFormDefault="qualified"
+        attributeFormDefault="unqualified">
+    <xsd:import namespace="http://www.springframework.org/schema/beans"/>
+    
+    <xsd:element name="client">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="beans:identifiedType">
+                    <xsd:attribute name="hosts" type="xsd:string" use="required" />
+                    <xsd:attribute name="namespace" type="xsd:string" use="required" />
+                    <xsd:attribute name="baseSleepTimeMs" type="xsd:string" />
+                    <xsd:attribute name="maxSleepTimeMs" type="xsd:string" />
+                    <xsd:attribute name="maxRetries" type="xsd:string" />
+                    <xsd:attribute name="sessionTimeoutMs" type="xsd:string" />
+                    <xsd:attribute name="connectionTimeoutMs" type="xsd:string" />
+                    <xsd:attribute name="digest" type="xsd:string" />
+                    <xsd:attribute name="nestedPort" type="xsd:string" />
+                    <xsd:attribute name="nestedDataDir" type="xsd:string" />
+                    <xsd:attribute name="localPropertiesPath" type="xsd:string" />
+                    <xsd:attribute name="overwrite" type="xsd:string" />
+                    <xsd:attribute name="isEnable" type="xsd:string" />
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="placeholder">
+        <xsd:complexType>
+            <xsd:attribute name="registry-center-ref" type="xsd:string" use="required" />
+            <xsd:attribute name="order" type="xsd:integer" />
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <mvc:default-servlet-handler/>
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:props/*.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- MVC支持注解驱动 -->
+    <mvc:annotation-driven/>
+
+    <!-- MVC过滤静态资源 -->
+    <mvc:resources mapping="/statics/**" location="/statics/"/>
+
+    <!-- velocity配置 -->
+    <bean id="velocityConfigurer" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+        <property name="resourceLoaderPath" value="/WEB-INF/views/"/>
+        <property name="configLocation" value="classpath:/props/velocity.properties"/>
+    </bean>
+
+    <!-- velocity布局视图解析器 -->
+    <bean id="velocityLayoutViewResolver" class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+        <property name="cache" value="false"/>
+        <property name="prefix" value=""/>
+        <property name="suffix" value=".vm"/>
+        <property name="layoutUrl" value="/layout/defaultLayout.vm"/>
+        <property name="contentType" value="text/html;charset=UTF-8"/>
+        <!-- 允许使用request对象属性 -->
+        <property name="exposeRequestAttributes" value="true"/>
+        <property name="requestContextAttribute" value="rc"/>
+        <!-- 允许使用宏 -->
+        <property name="exposeSpringMacroHelpers" value="true"/>
+        <property name="dateToolAttribute" value="dateTool"/>
+        <property name="numberToolAttribute" value="numberTool"/>
+        <property name="toolboxConfigLocation" value="/WEB-INF/classes/tools.xml"/>
+    </bean>
+
+
+</beans>
